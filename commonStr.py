@@ -12,6 +12,7 @@ class UrlDomainConfig:
 
 class LocationDomainConfig:
     animals_imgs_dir = 'animals_imgs_dir'
+    html_results_file_name = 'html_results_file_name'
 
 class RequestsDomainConfig:
     animal_img_header = 'animal_img_header'
