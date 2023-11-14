@@ -1,5 +1,5 @@
 from configparser import ConfigParser
-from commonStr import DomainConfig, UrlDomainConfig, ExtantionDomainConfig, LocationDomainConfig
+from commonStr import DomainConfig, UrlDomainConfig, ExtensionDomainConfig, LocationDomainConfig
 
 
 class Configurator:
@@ -14,5 +14,5 @@ class Configurator:
         return self.parser[DomainConfig.location][LocationDomainConfig.animals_imgs_dir]
 
     def get_wiki_list_of_animals_url(self):
-        return self.get_wiki_prefix().format(
-            self.parser[DomainConfig.extantion][ExtantionDomainConfig.wiki_list_of_animals_names])
+        return self.get_wiki_prefix().format(link_extension=
+            self.parser[DomainConfig.extension][ExtensionDomainConfig.wiki_list_of_animals_names])

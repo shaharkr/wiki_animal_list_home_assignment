@@ -1,9 +1,9 @@
 class DomainConfig:
     url = 'URL'
-    extantion = 'EXTANTION'
+    extension = 'EXTENSION'
     location = 'LOCATION'
 
-class ExtantionDomainConfig:
+class ExtensionDomainConfig:
     wiki_list_of_animals_names = 'wiki_list_of_animals_names'
 
 class UrlDomainConfig:
@@ -17,7 +17,9 @@ class ExecutorProperties:
     response_att_txt = 'text'
 
 class WikiDataHandlerProperties:
-    id_of_tables_title = 'Terms_by_species_or_taxon'
+    id_of_animal_table_title = 'Terms_by_species_or_taxon'
+    collaretal_adjective_column_label = 'Collateral adjective'
+    animal_column_label = 'Animal'
 
 class HtmlElements:
     id = 'id'
