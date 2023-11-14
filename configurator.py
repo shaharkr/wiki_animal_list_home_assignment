@@ -1,6 +1,6 @@
 from configparser import ConfigParser
-from commonStr import DomainConfig, UrlDomainConfig, ExtensionDomainConfig, LocationDomainConfig
-
+from commonStr import DomainConfig, UrlDomainConfig, ExtensionDomainConfig, LocationDomainConfig, RequestsDomainConfig
+import json
 
 class Configurator:
     def __init__(self):
@@ -16,3 +16,7 @@ class Configurator:
     def get_wiki_list_of_animals_url(self):
         return self.get_wiki_prefix().format(link_extension=
             self.parser[DomainConfig.extension][ExtensionDomainConfig.wiki_list_of_animals_names])
+    
+    def get_animal_img_header_request(self):
+        txt_dict = self.parser[DomainConfig.requests][RequestsDomainConfig.animal_img_header]
+        return json.loads(txt_dict)
