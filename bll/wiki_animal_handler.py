@@ -26,6 +26,7 @@ class WikiAnimalDataHandler:
     def __extract_wiki_animal_img_content(self) -> str:
         """Retrieves the content of the animal wiki img"""
         img_src = self.__get_animal_img_src()
+        self.__animal.set_img_src(img_src)
         header = config.get_animal_img_header_request()
         res = WebExtractor.send_get_request(url=img_src, attribute_needed=ExecutorProperties.response_att_content, headers=header)
         return res

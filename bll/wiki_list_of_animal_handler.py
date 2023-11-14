@@ -5,7 +5,7 @@ from commonStr import ExecutorProperties, WikiDataHandlerProperties, HtmlElement
 from typing import Tuple, List
 from itertools import takewhile
 import threading
-from dal.wiki_animal_handler import WikiAnimalDataHandler
+from bll.wiki_animal_handler import WikiAnimalDataHandler
 
 config = Configurator()
         
@@ -95,12 +95,13 @@ class WikiAnimalNamesListDataHandler:
             elif t == WikiDataHandlerProperties.animal_column_label:
                 animal_idx = index
             if animal_idx is not None and c_a_idx is not None:
-                # finish sucessfuly- found both indexes
+                # finish successfully- found both indexes
                 break
         return animal_idx, c_a_idx
     
     def __clean_string_from_non_letters(self, str_to_clean: str) -> str:
-        """clean wiki """
+        """clean wiki html strings. 
+        -Filter out non-letter characters and spaces, remove stop words (example- 'See'/'Also')"""
         str_to_ret = str_to_clean.split('See', 1)[0].split('Also', 1)[0].rstrip()
         str_to_ret = ''.join(takewhile(lambda char: char.isalpha() or char.isspace(), str_to_ret))
         str_to_ret = str_to_ret.split('\n', 1)[0].split('\t', 1)[0].rstrip()

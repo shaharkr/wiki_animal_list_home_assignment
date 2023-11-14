@@ -1,24 +1,33 @@
-from dal.wiki_list_of_animal_handler import WikiAnimalNamesListDataHandler
-from dal.wiki_animal_handler import WikiAnimalDataHandler
-import time
+from bll.wiki_list_of_animal_handler import WikiAnimalNamesListDataHandler
+from pl.wiki_list_of_animals_presenter import WikiAnimalNamesListPresenter
+from bll.html_creator import HtmlCreator
+import os
+from configurator import Configurator
 
+config = Configurator()
+
+def main():
+    adjective_to_animals_dict = {}
+    try:
+        handler = WikiAnimalNamesListDataHandler()
+        adjective_to_animals_dict = handler.create_collateral_adjective_to_animal()
+    except Exception as e:
+        print(f"failed to get collateral adjective and animals data. ERROR: {str(e)}")
+    
+    html_file_path = os.getcwd()
+    html_file_name = config.get_html_file_name()
+    try:
+        HtmlCreator.create_html_for_adjective_to_animals(adjective_to_animals_data_dict=adjective_to_animals_dict, file_path=html_file_path, file_name=html_file_name)
+    except Exception as e:
+        print(f"failed to get create html file. ERROR: {str(e)}")
+    
+    presenter = WikiAnimalNamesListPresenter(adjective_to_animals_dict)
+    try:
+        presenter.present_adjectives_with_animals_data()
+    except Exception as e:
+        print(f"failed to present data. ERROR: {str(e)}")
+        
+    
 if __name__ == '__main__':
-    x = WikiAnimalDataHandler('Dolphin', ['x'], '/wiki/Dolphin')
-    dolphin = x.get_animal()
-    print(dolphin)
-    x.download_animal_img()
+        main()
     
-    
-    
-    wah = WikiAnimalNamesListDataHandler()
-    start_time = time.time()
-    dict = wah.create_collateral_adjective_to_animal()
-    end_time = time.time()
-    elapsed_time = end_time - start_time
-    print(f"\n***********************Time taken: {elapsed_time} seconds********************")
-    # for i, tup in enumerate(dict.items()):
-    #     ac, animals = tup[0], tup[1]
-    #     print(f'{i+1}.Collateral Adjective-{ac}\n\tAnimals:')
-    #     for j, animal in enumerate(animals):
-    #         print(f'\t\t{i+1}.{j+1}.{animal}\n')
-    #     print('---------------------')

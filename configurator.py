@@ -20,3 +20,6 @@ class Configurator:
     def get_animal_img_header_request(self):
         txt_dict = self.parser[DomainConfig.requests][RequestsDomainConfig.animal_img_header]
         return json.loads(txt_dict)
+    
+    def get_html_file_name(self):
+        return self.parser[DomainConfig.location][LocationDomainConfig.html_results_file_name]
