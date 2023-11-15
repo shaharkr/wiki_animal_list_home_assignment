@@ -25,9 +25,9 @@ This Python project extracts and categorizes "collateral adjectives" and their c
 
 ### Program Outputs
 
-- print the results.
+- Print the results.
 - The 'tmp' directory will contain the animal images.
-- 'results.html'- Program output results.
+- File 'results.html'.
 
 ## Usage
 
