@@ -15,8 +15,6 @@ This Python project extracts and categorizes "collateral adjectives" and their c
 - `config.ini`: Configuration file.
 - `animal.py`: Module for animal-related functionality.
 - `requirements.txt`: File specifying project dependencies.
-                        ```bash
-                        pip install --no-cache-dir -r requirements.txt
 
 ## Task Completion
 
@@ -36,3 +34,8 @@ Execute the program by running:
 
 ```bash
 python main.py
+
+
+Install Python dependencies listed in 'requirements.txt':
+```bash
+pip install --no-cache-dir -r requirements.txt
