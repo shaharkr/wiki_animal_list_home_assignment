@@ -10,12 +10,12 @@ This Python project extracts and categorizes "collateral adjectives" and their c
 
 ## Project Structure
 
-- `dal`: Data access layer:
-  -`web_extractor.py`- Manages the retrieval of data from a specified URL by sending HTTP requests.
-- `bll`: Business logic layer:
+- `dal`- Data access layer:
+   -`web_extractor.py`- Manages the retrieval of data from a specified URL by sending HTTP requests.
+- `bll`- Business logic layer:
    - `wiki_list_of_animal_handler.py`: Responsible for managing tasks related to the extraction, parsing, and mapping of animal names and their adjectives from a list, process and transforming the data retrieved from Wikipedia.
    - `wiki_animal_handler.py`: Handles operations related to animals, such as extracting data from the animal wiki page and downloading images.
-- `pl`: Presentation layer containing
+- `pl`- Presentation layer:
   - `wiki_list_of_animals_presenter.py`- Responsible for displaying "collateral adjectives" and "animals", and manage the HTML file creation.
   - `html_creator.py`- Create an HTML file by using HTML objects
   - `html_objects.py`- Contains abstract HTML objects, used for HTML file creation.
