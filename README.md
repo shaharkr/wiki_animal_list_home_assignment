@@ -30,8 +30,8 @@ This Python project extracts and categorizes "collateral adjectives" and their c
 ### Program Outputs
 
 - Print the results.
-- The 'tmp' directory will contain the animal images.
-- File 'results.html'.
+- The `'tmp'` directory will contain the animal images.
+- File `'results.html'`.
 
 ## Usage
 
