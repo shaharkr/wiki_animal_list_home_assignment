@@ -13,9 +13,9 @@ This Python project extracts and categorizes "collateral adjectives" and their c
    - `wiki_animal_handler.py`: Handles operations related to animals, such as extracting data from the animal wiki page and downloading images.
 - `pl`: Presentation layer containing
   - `wiki_list_of_animals_presenter.py`- Responsible for displaying "collateral adjectives" and "animals", and manage the HTML file creation.
-  - 'html_creator.py'- Create an HTML file by using HTML objects
-  - 'html_objects.py'- Contains abstract HTML objects, used for HTML file creation.
-  - 'htmi_wiki_objects.py'- Acts as adapters (HTML creator familiar only with HtmlObject).
+  - `html_creator.py`- Create an HTML file by using HTML objects
+  - `html_objects.py`- Contains abstract HTML objects, used for HTML file creation.
+  - `htmi_wiki_objects.py`- Acts as adapters (HTML creator familiar only with HtmlObject).
 - `main.py`: Main Python script for executing the program.
 - `common_str.py`: Module holding common strings used in the program to avoid hard coding.
 - `configurator.py`: Module for handling configuration settings.
