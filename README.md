@@ -8,6 +8,7 @@ This Python project extracts and categorizes "collateral adjectives" and their c
 
 - `dal`: Data access layer containing a `web_extractor` responsible for sending HTTP requests to retrieve data from Wikipedia.
 - `bll`: Business logic layer containing handlers that process and transform the data retrieved from Wikipedia.
+-- hi
 - `pl`: Presentation layer containing a `wiki_list_of_animals_presenter` for displaying "collateral adjectives" and "animals."
 - `main.py`: Main Python script for executing the program.
 - `common_str.py`: Module holding common strings used in the program to avoid hard coding.
