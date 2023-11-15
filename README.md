@@ -33,9 +33,5 @@ The implemented program accomplishes the following:
 Execute the program by running:
 
 ```bash
-python main.py
-
-
-Install Python dependencies listed in 'requirements.txt':
-```bash
 pip install --no-cache-dir -r requirements.txt
+python main.py
