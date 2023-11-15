@@ -1,5 +1,9 @@
 # wiki_animal_list_home_assignment
 
+### Author
+
+- **[Shahar Kramer]**
+  
 ## Overview
 
 This Python project extracts and categorizes "collateral adjectives" and their corresponding animals from the Wikipedia page [List of animal names](https://en.wikipedia.org/wiki/List_of_animal_names).
