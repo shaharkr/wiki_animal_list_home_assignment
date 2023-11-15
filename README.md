@@ -23,17 +23,11 @@ This Python project extracts and categorizes "collateral adjectives" and their c
 - `animal.py`: Module for animal-related functionality.
 - `requirements.txt`: File specifying project dependencies.
 
-## Task Completion
+### Program Outputs
 
-The implemented program accomplishes the following:
-
-- Extraction of "collateral adjectives" and corresponding animals.
-- Displaying animals along with their "collateral adjectives."
-- If an animal has more than one collateral adjective, each is mentioned accordingly.
-
-### HTML Output
-
-'results.html'- Program output results.
+- print the results.
+- The 'tmp' directory will contain the animal images.
+- 'results.html'- Program output results.
 
 ## Usage
 
