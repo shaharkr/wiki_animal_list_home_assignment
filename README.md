@@ -2,33 +2,37 @@
 
 ## Overview
 
-Briefly describe the purpose and goals of your project.
+This Python project extracts and categorizes "collateral adjectives" and their corresponding animals from the Wikipedia page [List of animal names](https://en.wikipedia.org/wiki/List_of_animal_names).
 
 ## Project Structure
 
-- `dal`: Contains units related to the data access layer.
-- `bll`: Contains units related to the business logic layer.
-- `pl`: Contains units related to the presentation layer.
-- `main.py`: Main script for executing the program.
-- `common_str.py`: Module for common string-related functions.
+- `dal`: Data access layer containing a `web_extractor` responsible for sending HTTP requests to retrieve data from Wikipedia.
+- `bll`: Business logic layer containing handlers that process and transform the data retrieved from Wikipedia.
+- `pl`: Presentation layer containing a `wiki_list_of_animals_presenter` for displaying "collateral adjectives" and "animals."
+- `main.py`: Main Python script for executing the program.
+- `common_str.py`: Module holding common strings used in the program to avoid hard coding.
 - `configurator.py`: Module for handling configuration settings.
 - `config.ini`: Configuration file.
 - `animal.py`: Module for animal-related functionality.
 - `requirements.txt`: File specifying project dependencies.
+                        ```bash
+                        pip install --no-cache-dir -r requirements.txt
 
 ## Task Completion
 
-Describe the main functionalities implemented for the exercise:
+The implemented program accomplishes the following:
 
-- Extraction of collateral adjectives and corresponding animals.
-- Displaying animals along with their collateral adjectives.
-- (Optional) Downloading pictures of each animal into `/tmp/` with local links.
-- (Optional) Writing at least two test cases.
-- (Optional) Outputting results to an HTML file.
+- Extraction of "collateral adjectives" and corresponding animals.
+- Displaying animals along with their "collateral adjectives."
+- If an animal has more than one collateral adjective, each is mentioned accordingly.
+
+### HTML Output
+
+'results.html'- Program output results.
 
 ## Usage
 
-To run the program, execute:
+Execute the program by running:
 
 ```bash
 python main.py
