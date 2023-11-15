@@ -46,20 +46,24 @@ class WikiAnimalNamesListDataHandler:
                     if adj not in adjective_to_animals_dict:  # first time foud this adjective
                         adjective_to_animals_dict[adj] = []
                     adjective_to_animals_dict[adj].append(animal_data_handler.get_animal())
-            animal_data_handler.download_animal_img()
+            try:
+                animal_data_handler.download_animal_img()
+            except Exception as e:
+                print(f'{self.__class__.__name__}: faild to download animal image- {animal_data_handler.get_animal()}')
+                
         # split job- execute the rows processing by threads
         threads_lst = []
-        print(f'{self.__class__.__name__} start processing')
+        print(f'from {self.__class__.__name__}: start processing')
         for row in animals_rows:
             # table is sorted alphabetically by default, these headers represent letters of the alphabet. We want to ignore these row.
             if row.find_all(HtmlElements.th).__len__() == 0:
                 thread = threading.Thread(target=process_animal_row, args=(row,))
                 thread.start()
                 threads_lst.append(thread)
-        print(f'{self.__class__.__name__} wait for all threads to complete their job. total thread amout- {threads_lst.__len__()}')
+        print(f'from {self.__class__.__name__}: wait for all threads to complete their job. total thread amout- {threads_lst.__len__()}')
         for thread in threads_lst:
             thread.join()  # wait for all threads to complete their job.
-        print(f'{self.__class__.__name__} finish. total amoit of adjective- {adjective_to_animals_dict.__len__()}')
+        print(f'from {self.__class__.__name__}: finish. total amoit of adjective- {adjective_to_animals_dict.__len__()}')
         return adjective_to_animals_dict
     
     def __prepare_meta_data_for_parsing(self) -> Tuple[list, int, int]:

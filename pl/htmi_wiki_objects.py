@@ -4,6 +4,7 @@ from typing import Dict, List
 from commonStr import HtmlElements
 
 class AnimalHtmlObject(ObjectToHtml):
+    """Adapter between ObjectToHtml and Animal"""
     def __init__(self, animal: Animal) -> None:
         super().__init__(e=animal)
         
@@ -15,6 +16,7 @@ class AnimalHtmlObject(ObjectToHtml):
         return p
 
 class AdjectivelHtmlObject(ObjectToHtml):
+    """Adapter between ObjectToHtml and Adjective string"""
     def __init__(self, adjective: str) -> None:
         super().__init__(e=adjective)
         
@@ -25,6 +27,7 @@ class AdjectivelHtmlObject(ObjectToHtml):
 
 
 class AdjectiveToAnimalDictTolHtml(DictToHtml):
+    """Adapter between DictToHtml and Adjective to Animal dictionary"""
     def __init__(self, adjective_to_animals_dict: Dict[str, List[Animal]]) -> None:
         super().__init__(doc_title=f"Total amount of collateral adjectives -{adjective_to_animals_dict.__len__()}",
                        data_dict=adjective_to_animals_dict)
