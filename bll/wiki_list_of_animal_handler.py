@@ -2,7 +2,7 @@ from configurator import Configurator
 from dal.web_exetractor import WebExtractor
 from bs4 import BeautifulSoup, element
 from commonStr import ExecutorProperties, WikiDataHandlerProperties, HtmlElements
-from typing import Tuple, List
+from typing import Tuple
 from itertools import takewhile
 import threading
 from bll.wiki_animal_handler import WikiAnimalDataHandler
@@ -18,7 +18,9 @@ class WikiAnimalNamesListDataHandler:
     def create_collateral_adjective_to_animal(self) -> dict:
         """
         Parses the list of animal names and their adjectives, creating a dictionary mapping adjectives to corresponding Animal objects and return it.
+        Using threads to split the job.
         """
+        print(f'{self.__class__.__name__} start prepare meta data')
         animals_rows, animal_th_indx, ca_th_indx = self.__prepare_meta_data_for_parsing()  # prepare data for row animal process
         adjective_to_animals_dict = {}  # the return value
         adjective_to_animals_dict_lock = threading.Lock()  # each thread needs to use adjective_to_animals_dict (read and write).
@@ -47,14 +49,17 @@ class WikiAnimalNamesListDataHandler:
             animal_data_handler.download_animal_img()
         # split job- execute the rows processing by threads
         threads_lst = []
+        print(f'{self.__class__.__name__} start processing')
         for row in animals_rows:
             # table is sorted alphabetically by default, these headers represent letters of the alphabet. We want to ignore these row.
             if row.find_all(HtmlElements.th).__len__() == 0:
                 thread = threading.Thread(target=process_animal_row, args=(row,))
                 thread.start()
                 threads_lst.append(thread)
+        print(f'{self.__class__.__name__} wait for all threads to complete their job. total thread amout- {threads_lst.__len__()}')
         for thread in threads_lst:
             thread.join()  # wait for all threads to complete their job.
+        print(f'{self.__class__.__name__} finish. total amoit of adjective- {adjective_to_animals_dict.__len__()}')
         return adjective_to_animals_dict
     
     def __prepare_meta_data_for_parsing(self) -> Tuple[list, int, int]:

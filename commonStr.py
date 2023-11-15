@@ -41,4 +41,12 @@ class HtmlElements:
     a = 'a'
     tbl = 'table'
     href = 'href'
+    dot = '&#x2022;'
+    h1 = 'h1'
+    h2 = 'h2'
+    p = 'p'
+    b = 'b'
+    style = 'style'
+    mark = 'mark'
+    ins = 'ins'
     

@@ -40,4 +40,4 @@ class Animal:
     def save_img(self, img):
         with open(self.img_path, 'wb') as image_file:
             image_file.write(img)
-            # print(f"animal {self.name}- Image saved successfully")
+            print(f"{self.__class__.__name__} {self.name}- Image saved successfully")
